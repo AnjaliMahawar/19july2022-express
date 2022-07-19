@@ -1,0 +1,39 @@
+let mdw1=(req,res,next)=>{
+    let fulldetails=" "
+    console.log(req.query)
+
+     for(k in req.query)
+     {
+     //   console.log(k)
+       // console.log(req.query[k])
+
+       fulldetails=fulldetails+ req.query[k] + ' ';
+    //   console.log("inside mw1",fulldetails)
+     }
+     
+     req.query={fulldetails}
+     console.log(fulldetails);
+
+    next()
+
+}
+let mdw2=(req,res,next)=>{
+    let fulldetails2=" "
+    console.log(req.body)
+
+     for(key in req.body)
+     {
+        console.log(key)
+        //console.log(req.body[k])
+
+       //fulldetails2=fulldetails2+ req.body[k] + ' ';
+    //   console.log("inside mw1",fulldetails)
+     }
+     
+     //req.body={fulldetails2}
+     //console.log(fulldetails2);
+
+
+    next()
+}
+module.exports={mdw1,mdw2}
